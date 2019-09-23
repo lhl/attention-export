@@ -7,7 +7,7 @@ import os
 import sys
 
 comments = []
-for l in glob.glob('comments/*.json'):
+for l in glob.glob('../_data/reddit/comments/*.json'):
   if os.path.isfile(l):
     with open(l) as f:
       c = json.load(f)
