@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import json
 import os
@@ -48,10 +48,16 @@ def main():
 
     if isinstance(l, praw.models.reddit.submission.Submission):
       print('SUBMISSION: ', end = '')
-      save_submission(l)
+      try:
+        save_submission(l)
+      except:
+        print("Timed out saving", l, "SKIPPING!!!")
     else:
       print('COMMENT: ', end = '')
-      save_comment(l)
+      try:
+        save_comment(l)
+      except:
+        print("Timed out saving", l, "SKIPPING!!!")
     time.sleep(1)
 
 '''
